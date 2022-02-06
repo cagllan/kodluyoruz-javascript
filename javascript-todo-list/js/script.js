@@ -2,6 +2,7 @@
 const inputTaskDOM = document.querySelector('#task');
 const liveToastBtnDOM = document.querySelector('#liveToastBtn');
 const ulListDOM = document.querySelector('#list');
+const liDOM = document.querySelectorAll('#list>li')
 
 
 
@@ -34,9 +35,17 @@ function removeElement(e){
 }
 
 
+// checked Element
+function checkElement(e){
+    if(e.target.tagName === 'LI')
+     {
+        e.target.classList.toggle('checked')
+     }
+}
 
 
 // event listeners
-
+ulListDOM.addEventListener('click', checkElement);
 ulListDOM.addEventListener('click', removeElement);
+
 
