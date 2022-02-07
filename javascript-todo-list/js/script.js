@@ -2,8 +2,9 @@
 const inputTaskDOM = document.querySelector('#task');
 const liveToastBtnDOM = document.querySelector('#liveToastBtn');
 const ulListDOM = document.querySelector('#list');
-const liDOM = document.querySelectorAll('#list>li')
 
+const successDOM = document.querySelector('.success');
+const errorDOM = document.querySelector('.error');
 
 
 // check input value
@@ -14,14 +15,17 @@ function checkValue(value){
 // add new li element in ul tag
 function newElement(){
     let listText = inputTaskDOM.value
+    inputTaskDOM.value = ""
 
     if(checkValue(listText)){
         const liDOM = document.createElement('li');
         liDOM.innerHTML = `${listText} <span class="close">&times;</span>`;
         ulListDOM.append(liDOM);
+        
+        showToastr(successDOM)
 
     }else{
-        console.log("there is a problem");
+        showToastr(errorDOM)
     }
     
 }
@@ -41,6 +45,12 @@ function checkElement(e){
      {
         e.target.classList.toggle('checked')
      }
+}
+
+
+//toastr
+function showToastr(domELement){
+    $(domELement).toast('show')
 }
 
 
