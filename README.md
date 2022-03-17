@@ -1,4 +1,5 @@
 # Javascript odev
+www.patika.dev
 
 ## javascript-clock
 
